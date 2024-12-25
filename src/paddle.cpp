@@ -22,7 +22,7 @@ void Paddle::moveUp()
 
 void Paddle::moveDown()
 {
-    if (y + heigth < 800){
+    if (y + heigth < 600){
         y += speed;
     }
 }

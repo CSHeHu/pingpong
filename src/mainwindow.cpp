@@ -36,25 +36,27 @@ void MainWindow::paintEvent(QPaintEvent *event) {
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
-    if(event->type() == QEvent::KeyPress){
-        if (event->key() == Qt::Key_W) {
-            leftPaddle->moveUp();
-        }
-        if (event->key() == Qt::Key_S) {
-            leftPaddle->moveDown();
-            }
-        if (event->key() == Qt::Key_Up) {
-            rightPaddle->moveUp();
-        }
-        if (event->key() == Qt::Key_Down) {
-            rightPaddle->moveDown();
-        }
-    }
+    if (event->key() == Qt::Key_W) leftUp = true;
+    if (event->key() == Qt::Key_S) leftDown = true;
+    if (event->key() == Qt::Key_Up) rightUp = true;
+    if (event->key() == Qt::Key_Down) rightDown = true;
+}
+
+void MainWindow::keyReleaseEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_W) leftUp = false;
+    if (event->key() == Qt::Key_S) leftDown = false;
+    if (event->key() == Qt::Key_Up) rightUp = false;
+    if (event->key() == Qt::Key_Down) rightDown = false;
 }
 
 
 void MainWindow::updateGame()
 {
+    if (leftUp) leftPaddle->moveUp();
+    if (leftDown) leftPaddle->moveDown();
+    if (rightUp) rightPaddle->moveUp();
+    if (rightDown) rightPaddle->moveDown();
 
     update();
 }
