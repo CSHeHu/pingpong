@@ -5,7 +5,7 @@
 #include <QPainter>
 #include <QTimer>
 #include "paddle.h"
-
+#include "ball.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,6 +28,7 @@ private:
     Ui::MainWindow *ui;
     Paddle *leftPaddle;
     Paddle *rightPaddle;
+    Ball *ball;
     QTimer *timer;
     bool leftUp = false;
     bool leftDown = false;

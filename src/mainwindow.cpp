@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     setFixedSize(800, 600);
     leftPaddle = new Paddle(30, 250, 20, 100, 10);
     rightPaddle = new Paddle(750, 250, 20, 100, 10);
+    ball = new Ball(400, 300, 15, 3);
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::updateGame);
@@ -24,6 +25,7 @@ MainWindow::~MainWindow()
     delete ui;
     delete leftPaddle;
     delete rightPaddle;
+    delete ball;
 }
 
 void MainWindow::paintEvent(QPaintEvent *event) {
@@ -32,6 +34,7 @@ void MainWindow::paintEvent(QPaintEvent *event) {
     // Call the paddle's draw method
     leftPaddle->draw(painter);
     rightPaddle->draw(painter);
+    ball->draw(painter);
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)

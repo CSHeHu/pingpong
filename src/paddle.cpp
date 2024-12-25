@@ -10,7 +10,7 @@ Paddle::Paddle(float x, float y, float width, float heigth, float speed)
 void Paddle::draw(QPainter &painter) const
 {
     painter.setBrush(Qt::blue);  // Paddle color
-    painter.drawRect(QRectF(x, y, width, heigth));
+    painter.drawRect(getRect());
 }
 
 void Paddle::moveUp()
@@ -25,4 +25,9 @@ void Paddle::moveDown()
     if (y + heigth < 600){
         y += speed;
     }
+}
+
+QRectF Paddle::getRect() const
+{
+    return QRectF(x, y, width, heigth);
 }

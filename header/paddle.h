@@ -11,6 +11,7 @@ public:
     void draw(QPainter &painter) const;
     void moveUp();
     void moveDown();
+    QRectF getRect() const;
 private:
     float x;
     float y;
