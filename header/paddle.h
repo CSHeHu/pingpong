@@ -7,7 +7,7 @@
 class Paddle
 {
 public:
-    Paddle(float x, float y, float width, float heigth, float speed);
+    Paddle(float x, float y, float width, float heigth, float speed, float windowHeight);
     void draw(QPainter &painter) const;
     void moveUp();
     void moveDown();
@@ -18,6 +18,7 @@ private:
     float width;
     float heigth;
     float speed;
+    float windowHeight;
 };
 
 #endif // PADDLE_H

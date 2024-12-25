@@ -34,6 +34,8 @@ private:
     bool leftDown = false;
     bool rightUp = false;
     bool rightDown = false;
+    float windowHeight = 600;
+    float windowWidth = 800;
 
 private slots:
     void updateGame();

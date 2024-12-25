@@ -1,4 +1,3 @@
-#include <iostream>
 
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
@@ -9,10 +8,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    setFixedSize(800, 600);
-    leftPaddle = new Paddle(30, 250, 20, 100, 10);
-    rightPaddle = new Paddle(750, 250, 20, 100, 10);
-    ball = new Ball(400, 300, 15, 3);
+    setFixedSize(windowWidth, windowHeight);
+    leftPaddle = new Paddle(30, 250, 20, 100, 10, windowHeight);
+    rightPaddle = new Paddle(750, 250, 20, 100, 10, windowHeight);
+    ball = new Ball(40, 30, 15, 3, 3, windowWidth, windowHeight);
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::updateGame);
@@ -60,6 +59,8 @@ void MainWindow::updateGame()
     if (leftDown) leftPaddle->moveDown();
     if (rightUp) rightPaddle->moveUp();
     if (rightDown) rightPaddle->moveDown();
+    ball->move();
+    ball->hitWall();
 
     update();
 }

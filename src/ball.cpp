@@ -1,7 +1,9 @@
 #include "ball.h"
 
-Ball::Ball(float x, float y, float radius, float speed)
-    : x(x), y(y), radius(radius), speed(speed)
+#include <iostream>
+
+Ball::Ball(float x, float y, float radius, float speedx, float speedy, float windowWidth, float windowHeight)
+    : x(x), y(y), radius(radius), speedx(speedx), speedy(speedy), windowWidth(windowWidth), windowHeight(windowHeight)
 {
 
 }
@@ -17,12 +19,22 @@ QRectF Ball::getRect() const
     return QRectF(x,y,radius,radius);
 }
 
-void Ball::moveLeft()
+void Ball::move()
+{
+    //x += speedx;
+    y += speedy;
+}
+
+void Ball::hitPaddle()
 {
 
 }
 
-void Ball::moveRight()
+void Ball::hitWall()
 {
+    if (y < 0 || y > windowHeight - radius) {
+        speedy = -speedy;
+    }
 
 }
+

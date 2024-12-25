@@ -1,8 +1,8 @@
 #include "paddle.h"
 #include "mainwindow.h"
 
-Paddle::Paddle(float x, float y, float width, float heigth, float speed)
-    :x(x), y(y), width(width), heigth(heigth), speed(speed)
+Paddle::Paddle(float x, float y, float width, float heigth, float speed, float windowHeight)
+    :x(x), y(y), width(width), heigth(heigth), speed(speed), windowHeight(windowHeight)
 {
 
 }
@@ -22,7 +22,7 @@ void Paddle::moveUp()
 
 void Paddle::moveDown()
 {
-    if (y + heigth < 600){
+    if (y + heigth < windowHeight){
         y += speed;
     }
 }
