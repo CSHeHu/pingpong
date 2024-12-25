@@ -1,6 +1,7 @@
 #ifndef BALL_H
 #define BALL_H
 #include <QPainter>
+#include "paddle.h"
 
 class Ball
 {
@@ -9,7 +10,7 @@ public:
     void draw(QPainter &painter) const;
     QRectF getRect() const;
     void move();
-    void hitPaddle();
+    void hitPaddle(Paddle &paddle);
     void hitWall();
 
 private:

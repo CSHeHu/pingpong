@@ -21,12 +21,16 @@ QRectF Ball::getRect() const
 
 void Ball::move()
 {
-    //x += speedx;
+    x += speedx;
     y += speedy;
 }
 
-void Ball::hitPaddle()
+void Ball::hitPaddle(Paddle &paddle)
 {
+    if (getRect().intersects(paddle.getRect())){
+        speedx = -speedx;
+    }
+
 
 }
 

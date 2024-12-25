@@ -59,8 +59,11 @@ void MainWindow::updateGame()
     if (leftDown) leftPaddle->moveDown();
     if (rightUp) rightPaddle->moveUp();
     if (rightDown) rightPaddle->moveDown();
+
     ball->move();
     ball->hitWall();
+    ball->hitPaddle(*leftPaddle);
+    ball->hitPaddle(*rightPaddle);
 
     update();
 }
