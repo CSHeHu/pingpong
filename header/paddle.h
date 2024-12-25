@@ -9,6 +9,8 @@ class Paddle
 public:
     Paddle(float x, float y, float width, float heigth, float speed);
     void draw(QPainter &painter) const;
+    void moveUp();
+    void moveDown();
 private:
     float x;
     float y;

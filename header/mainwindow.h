@@ -3,7 +3,11 @@
 
 #include <QMainWindow>
 #include <QPainter>
+#include <QTimer>
 #include "paddle.h"
+
+constexpr int windowWidth = 800;
+constexpr int windowHeigth = 600;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,10 +20,20 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+protected:
     void paintEvent(QPaintEvent *event) override;
+    //void keyPressEvent(QKeyEvent *event) override;
+    //void keyReleaseEvent(QKeyEvent *event) override;
 
 private:
     Ui::MainWindow *ui;
     Paddle *leftPaddle;
+    Paddle *rightPaddle;
+    QTimer *timer;
+
+private slots:
+    void updateGame();
+
 };
 #endif // MAINWINDOW_H
