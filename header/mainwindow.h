@@ -7,10 +7,6 @@
 #include "paddle.h"
 #include "ball.h"
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -25,7 +21,6 @@ protected:
     void keyReleaseEvent(QKeyEvent *event) override;
 
 private:
-    Ui::MainWindow *ui;
     Paddle *leftPaddle;
     Paddle *rightPaddle;
     Ball *ball;

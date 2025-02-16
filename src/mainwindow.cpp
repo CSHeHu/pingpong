@@ -1,13 +1,10 @@
 
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
     setFixedSize(windowWidth, windowHeight);
     leftPaddle = new Paddle(30, 250, 20, 100, 10, windowHeight);
     rightPaddle = new Paddle(750, 250, 20, 100, 10, windowHeight);
@@ -21,7 +18,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    delete ui;
     delete leftPaddle;
     delete rightPaddle;
     delete ball;
