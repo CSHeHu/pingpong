@@ -6,9 +6,9 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     setFixedSize(windowWidth, windowHeight);
-    leftPaddle = new Paddle(30, 250, 20, 100, 10, windowHeight);
-    rightPaddle = new Paddle(750, 250, 20, 100, 10, windowHeight);
-    ball = new Ball(40, 30, 15, 3, 3, windowWidth, windowHeight);
+    leftPaddle = new Paddle(30, 250, 20, 100, 10, windowHeight - 20);
+    rightPaddle = new Paddle(750, 250, 20, 100, 10, windowHeight - 20);
+    ball = new Ball(40, 30, 15, 3, 3, windowWidth, windowHeight - 20);
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::updateGame);

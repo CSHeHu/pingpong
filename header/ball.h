@@ -1,6 +1,8 @@
 #ifndef BALL_H
 #define BALL_H
 #include <QPainter>
+#include <stdlib.h>
+#include <time.h>
 #include "paddle.h"
 
 class Ball
